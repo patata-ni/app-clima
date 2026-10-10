@@ -1,0 +1,4 @@
+# Copia este archivo como local.properties (sin ".example") y rellénalo.
+# local.properties está en .gitignore: tu clave no se sube a GitHub.
+# Android Studio añade sdk.dir automáticamente al abrir el proyecto.
+OPENWEATHER_API_KEY=TU_API_KEY_DE_OPENWEATHER

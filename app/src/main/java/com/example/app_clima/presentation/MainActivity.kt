@@ -37,6 +37,7 @@ import androidx.wear.compose.material3.lazy.rememberTransformationSpec
 import androidx.wear.compose.material3.lazy.transformedHeight
 import androidx.wear.compose.ui.tooling.preview.WearPreviewDevices
 import androidx.wear.compose.ui.tooling.preview.WearPreviewFontScales
+import com.example.app_clima.BuildConfig
 import com.example.app_clima.R
 import com.example.app_clima.presentation.theme.App_ClimaTheme
 import com.example.app_clima.presentation.theme.WeatherApi
@@ -77,7 +78,7 @@ fun WeatherScreen() {
                 WeatherApi.service.getWeather(
                     lat = 20.967370,
                     lon = -89.592590,
-                    apiKey = "TU_API_KEY_DE_OPENWEATHER"
+                    apiKey = BuildConfig.OPENWEATHER_API_KEY
                 )
             }
             weather = resultado

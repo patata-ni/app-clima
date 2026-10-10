@@ -10,14 +10,21 @@ Por ahora consulta unas coordenadas fijas (Mérida, Yucatán) en
 
 ## Configurar la clave de OpenWeather
 
-Este repositorio **no incluye** ninguna clave.
+Este repositorio **no incluye** ninguna clave. Se lee de `local.properties`,
+un archivo que git ignora, así que tu clave nunca se sube a GitHub.
 
 1. Crea una cuenta gratuita en OpenWeather y copia tu *API key*.
-2. En [MainActivity.kt](./app/src/main/java/com/example/app_clima/presentation/MainActivity.kt)
-   sustituye `TU_API_KEY_DE_OPENWEATHER` por tu clave.
+2. Copia [local.properties.example](./local.properties.example) como
+   `local.properties` en la raíz del proyecto.
+3. Sustituye `TU_API_KEY_DE_OPENWEATHER` por tu clave.
 
-Una clave incrustada en el código acaba en el repositorio. Para algo más allá de
-una práctica, guárdala en `local.properties` y léela con `BuildConfig`.
+Si `local.properties` ya existe (Android Studio lo crea con la ruta del SDK),
+añade la línea `OPENWEATHER_API_KEY=...` sin borrar `sdk.dir`.
+Sin clave, la app compila pero el clima no carga.
+
+La clave se compila dentro de la app (`BuildConfig`), así que quien tenga el APK
+puede extraerla. Es aceptable en una práctica; en una app real, la clave debería
+estar en un servidor propio.
 
 ## Ejecutar
 

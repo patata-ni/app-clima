@@ -1,6 +1,14 @@
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.compose)
+}
+
+// La clave vive en local.properties, que git ignora: nunca se sube al repositorio.
+val localProperties = Properties().apply {
+    val file = rootProject.file("local.properties")
+    if (file.exists()) file.inputStream().use { load(it) }
 }
 
 android {
@@ -18,6 +26,11 @@ android {
         versionCode = 1
         versionName = "1.0"
 
+        buildConfigField(
+            "String",
+            "OPENWEATHER_API_KEY",
+            "\"${localProperties.getProperty("OPENWEATHER_API_KEY", "")}\""
+        )
     }
 
     buildTypes {
@@ -35,6 +48,7 @@ android {
     }
     useLibrary("wear-sdk")
     buildFeatures {
+        buildConfig = true
         compose = true
     }
 }
